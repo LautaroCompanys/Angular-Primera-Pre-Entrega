@@ -12,6 +12,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 //Formulario
 import { ReactiveFormsModule } from '@angular/forms';
+import { UsersService } from '../../../../core/services/users.service';
+import { UsersMockService } from '../../../../core/services/users-mock.service';
 
 
 
@@ -20,5 +22,11 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [StudentsComponent, FormularioComponent],
   imports: [CommonModule,MatTableModule,MatFormFieldModule,MatInputModule,MatSelectModule,MatButtonModule,ReactiveFormsModule],
   exports: [StudentsComponent],
+  providers:[
+    {
+      provide: UsersService,
+      useClass: UsersMockService
+    }
+  ]
 })
 export class StudentsModule { }

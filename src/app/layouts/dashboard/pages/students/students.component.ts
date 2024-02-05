@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { alumnos } from './models/students';
+import { UsersService } from '../../../../core/services/users.service';
 
 
 
@@ -34,6 +35,8 @@ export class StudentsComponent {
       asistencia: true,
     }
   ];
+
+  constructor(private usersService: UsersService){}
 
   onAlumnosSubmited(ev: alumnos): void{
     this.dataSource = [...this.dataSource, ev]
